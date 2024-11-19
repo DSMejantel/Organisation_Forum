@@ -1,0 +1,22 @@
+{
+    "component": "shell",
+    "title": "Forum 2025",
+    "link": "/",
+    "icon": "messages",
+    "favicon":"/favicon.ico",
+    "language":"fr-FR",
+    "layout": "fluid",
+    "norobot": "TRUE",
+    "menu_item": [
+         {"title": "Pôles", "link": "/poles.sql"},
+         {"title": "Organisation", "submenu": [
+            {"link": "/liste.sql", "title": "Liste globale"},
+            {"link": "/repertoire.sql", "title": "Inscrits & Badges"},
+            {"link": "/besoins.sql", "title": "Besoins matériels"},
+            {"link": "/repas.sql", "title": "Gestion des Repas"}
+        ]},
+        {"title": "Mon compte", "submenu": [
+            {"link": "/comptes/logout.sql", "title": "Se déconnecter"}
+        ]}
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "component": "shell",
+    "title": "Forum 2025",
+    "link": "/",
+    "icon": "messages",
+    "favicon":"/favicon.ico",
+    "language":"fr-FR",
+    "layout": "fluid",
+    "norobot": "TRUE",
+    "menu_item": [
+         {"title": "Pôles", "link": "/poles.sql"},
+         {"title": "Connexion", "submenu": [
+            {"link": "/comptes/signin.sql", "title": "Se connecter"},
+            {"link": "/comptes/cas/login.sql", "title": "Se connecter avec l'ENT"}
+        ]}
+    ]
+}

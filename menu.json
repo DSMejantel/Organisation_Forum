@@ -1,0 +1,33 @@
+{
+    "component": "shell",
+    "title": "Forum 2025",
+    "link": "/",
+    "icon": "messages",
+    "favicon":"/favicon.ico",
+    "language":"fr-FR",
+    "layout": "fluid",
+    "norobot": "TRUE",
+    "menu_item": [
+         {"title": "Pôles", "link": "/poles.sql"},
+         {"title": "Organisation", "submenu": [
+            {"link": "/liste.sql", "title": "Liste globale"},
+            {"link": "/repertoire.sql", "title": "Inscrits & Badges"},
+            {"link": "/besoins.sql", "title": "Besoins matériels"},
+            {"link": "/repas.sql", "title": "Gestion des Repas"}
+        ]},
+        {"title": "Paramétrage", "submenu": [
+            {"link": "/def_pole.sql", "title": "Pôles professionnels"},
+            {"link": "/def_creneau.sql", "title": "Créneaux horaires"},
+            {"link": "/def_repas.sql", "title": "Repas"},
+            {"link": "/def_besoin.sql", "title": "Besoins"}
+        ]},
+        {"title": "Comptes", "submenu": [
+            {"link": "/comptes/cas_param.sql", "title": "Paramètres ENT"},
+            {"link": "/comptes/comptes_ajout.sql", "title": "Ajouter un compte"},
+            {"link": "/comptes/comptes.sql", "title": "Gestion des comptes"}
+        ]},
+        {"title": "Mon compte", "submenu": [
+            {"link": "/comptes/logout.sql", "title": "Se déconnecter"}
+        ]}
+    ]
+}
