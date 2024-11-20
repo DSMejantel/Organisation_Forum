@@ -23,18 +23,21 @@ SELECT 'table' as component,
     TRUE as sort,
     TRUE as search,
     'ADMIN' as markdown,
+    'Nbre' as markdown,
     'Services disponibles' as title  WHERE $tab=1;
     
 SELECT 
     inscription.id as N°,
     (SELECT horaire from creneaux WHERE id=creneau) as Créneau,
-    nombre as Nbre,
+    nombre ||
+    '[![](./icons/users.svg)
+](liste.sql "'||(SELECT group_concat(nom,', ') FROM intervenants WHERE inscription_id=inscription.id)||'")' as Nbre,
     entreprise as Identité,
     (SELECT pole from poles WHERE id=pole_id) as Pôle,
     metiers as metiers,
     courriel as Courriel,
     tel	as Tel,
-    group_concat(distinct categorie)  as Besoins,
+    --group_concat(distinct categorie)  as Besoins,
     infos as infos,
     date_created as Enregistré_le,
     '[![](./icons/pencil.svg)
