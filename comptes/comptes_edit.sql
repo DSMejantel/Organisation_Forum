@@ -47,7 +47,7 @@ select
 
 SELECT 'table' as component;
 SELECT 
-  username as Identifiant,
+  username||' ('||$group_edit||')' as Identifiant,
   nom AS Nom,
   prenom AS Prénom,
   tel as Téléphone,
@@ -65,8 +65,9 @@ SELECT
     SELECT 'Identifiant ENT' AS label, 'cas' AS name, $cas_edit as value, 4 as width;
     SELECT 'Téléphone' AS label, 'tel' AS name, $tel_edit as value, 3 as width;
     SELECT 'Courriel' AS label, 'courriel' AS name, $courriel_edit as value, 3 as width;
+    
+    SELECT 'Droits :' AS label, 'groupe' AS name, 'select' as type, (SELECT groupe FROM user_info WHERE username = $id) as value, 3 as width, TRUE as required, json_group_array(json_object("label", groupes, "value", groupes_id)) as options FROM (select * FROM permissions ORDER BY groupes_id ASC);
 
-    SELECT 'Droits :' AS label, 'groupe' AS name, 'select' as type, '[{"label": "Inscrit", "value": 1}, {"label": "Enseignant", "value": 2}, {"label": "Éditeur", "value": 3}, {"label": "administrateur", "value": 4}]' as options, $group_edit as value, 2 as width;
 
 --Bouton du formulaire
 select 

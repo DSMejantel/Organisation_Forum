@@ -29,6 +29,16 @@ select
     'comptes_ajout.sql' as link,
     'square-rounded-plus' as icon,
     'green' as outline;
+select 
+    'Permissions' as title,
+    'permissions.sql' as link,
+    'user-shield' as icon,
+    'orange' as outline;
+select 
+    'RAZ activation' as title,
+    'tool_raz_activation.sql' as link,
+    'trash' as icon,
+    'orange' as outline;
 
 
 -- Liste   
@@ -44,11 +54,7 @@ SELECT
   nom AS Nom,
   prenom AS Prénom,
   username as Identifiant,
-  CASE WHEN groupe=1 THEN 'inscrit '
-                WHEN groupe=2 THEN 'Enseignant'
-                WHEN groupe=3 THEN 'édition'
-                WHEN groupe=4 THEN 'administration'
-  END as Permissions,
+  (SELECT groupes FROM permissions WHERE permissions.groupes_id=user_info.groupe) as Permissions,
   activation as Code,
   connexion as Connexion,
       '[

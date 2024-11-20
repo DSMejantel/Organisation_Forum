@@ -6,13 +6,11 @@ SET group_id = (SELECT user_info.groupe FROM login_session join user_info on use
 SELECT 'redirect' AS component,
         '/index.sql?restriction' AS link
         WHERE $group_id<>'4';
-        
- -- Supprime le mot de passe
-UPDATE user_info set password_hash = NULL WHERE username=$id and :code is not null        
 
-   -- Mettre à jour le compte modifié dans la base avec un code d'activation
- UPDATE user_info SET activation=:code WHERE username=$id and :code is not null
+
+    -- Mettre à jour le compte modifié dans la base
+ UPDATE permissions SET groupes=:nom_groupe WHERE groupes_id=$id
  RETURNING
    'redirect' AS component,
-   'comptes.sql' as link;
-   
+   '/comptes/permissions.sql' as link;
+

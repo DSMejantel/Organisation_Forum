@@ -25,8 +25,7 @@ SELECT 'prenom' AS name, 'Prénom' as label, 4 as width, TRUE as required;
 SELECT 'Identifiant ENT' AS label, 'cas' AS name, 4 as width;
 SELECT 'Téléphone' AS label, 'tel' AS name, 3 as width;
 SELECT 'Courriel' AS label, 'courriel' AS name, 3 as width;
-SELECT 'groupe' AS name, 'Permissions' as label, 'select' as type, 3 as width, 0 as value,
-    '[{"label": "Inscrit", "value": 1}, {"label": "Enseignant", "value": 2}, {"label": "Éditeur", "value": 3}, {"label": "administrateur", "value": 4}]' as options;
+SELECT 'groupe' AS name, 'Permissions' as label, 'select' as type, 3 as width, 1 as value,json_group_array(json_object("label", groupes, "value", groupes_id)) as options FROM (select * FROM permissions ORDER BY groupes_id ASC)
 SELECT 'code' AS name, 'text' AS type, sqlpage.random_string(20) AS value, 'Code d''activation' as label, 6 as width;
 
 
